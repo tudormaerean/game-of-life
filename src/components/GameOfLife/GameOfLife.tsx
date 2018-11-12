@@ -36,7 +36,7 @@ class GameOfLife extends React.Component<GameOfLifeProps, GameOfLifeState> {
   }
 
   componentDidMount() {
-    this.getViewportDimensions();
+    this.windowResizeHandler();
     window.addEventListener('resize', this.windowResizeHandler);
   }
 
@@ -82,11 +82,12 @@ class GameOfLife extends React.Component<GameOfLifeProps, GameOfLifeState> {
   initMatrix = () => {
     const { fillFactor } = this.props;
     let matrix: boolean[][] = [[]];
-    for (let column = 0; column < this.matrixHeight; column++) {
-      matrix[column] = [];
-      for (let row = 0; row < this.matrixWidth; row++) {
-        matrix[column][row] = (Math.random() < fillFactor ? true : false);
+    for (let columnIndex = 0; columnIndex < this.matrixHeight; columnIndex++) {
+      let column = []
+      for (let rowIndex = 0; rowIndex < this.matrixWidth; rowIndex++) {
+        column.push(Math.random() < fillFactor);
       }
+      matrix.push(column);
     }
     this.setState({
       matrix,
