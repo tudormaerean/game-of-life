@@ -9,16 +9,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className={styles.container}>
-          <GameOfLife fillFactor={0.2} unitSize={10} maxGameIterations={150} />
-        </div>
-        <div className={styles.container}>
-          <GameOfLife fillFactor={0.2} unitSize={10} maxGameIterations={100} />
-        </div>
-        <div className={styles.container}>
-          <GameOfLife fillFactor={0.2} unitSize={10} maxGameIterations={75} />
-        </div>
-        <div className={styles.container}>
-          <GameOfLife fillFactor={0.2} unitSize={10} maxGameIterations={50} />
+          <GameOfLife fillFactor={0.2} unitSize={15} maxGameIterations={200} />
         </div>
       </React.Fragment>
     );
